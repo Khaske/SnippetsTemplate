@@ -5,6 +5,6 @@ from MainApp import views
 
 urlpatterns = [
     path('', views.index_page, name="home"),
-    path('snippets/add', views.add_snippet_page, name="add_page"),
-    path('snippets/list', views.snippets_page, name="get_page"),
+    path('snippets/add', views.add_snippet_page, name="add_snippet"),
+    path('snippets/list', views.snippets_page, name="view_snippet"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
