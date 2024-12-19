@@ -38,4 +38,9 @@ def snippet_detail(request, snippet_id: int):
         return render(request, 'pages/snippet_detail.html', context)
     
 def create_snippet(request):
-    
+    if request.method == 'POST':
+        form = SnippetForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("snippets-list")
+        return render(request, "pages/snippet_add.html", {'form':form})
