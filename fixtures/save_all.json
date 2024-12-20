@@ -1,0 +1,92 @@
+[
+{
+    "model": "MainApp.snippet",
+    "pk": 1,
+    "fields": {
+        "name": "Hello World Snippet",
+        "lang": "py",
+        "code": "print(\"Hello World!\")",
+        "creation_date": "2024-12-16T13:18:51.701Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 2,
+    "fields": {
+        "name": "Second Snippet",
+        "lang": "js",
+        "code": "console.log(\"Hello world from JavaScript!\")",
+        "creation_date": "2024-12-19T08:00:25.164Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 3,
+    "fields": {
+        "name": "1",
+        "lang": "123",
+        "code": "123",
+        "creation_date": "2024-12-19T12:42:45.880Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 4,
+    "fields": {
+        "name": "Third",
+        "lang": "C++",
+        "code": "cout",
+        "creation_date": "2024-12-19T12:44:04.110Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 5,
+    "fields": {
+        "name": "Third",
+        "lang": "C++",
+        "code": "cout",
+        "creation_date": "2024-12-19T12:44:56.943Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 6,
+    "fields": {
+        "name": "2",
+        "lang": "py",
+        "code": "print()",
+        "creation_date": "2024-12-19T12:49:32.576Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 7,
+    "fields": {
+        "name": "2123",
+        "lang": "py",
+        "code": "print()",
+        "creation_date": "2024-12-19T12:52:27.843Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 8,
+    "fields": {
+        "name": "New_snippet",
+        "lang": "python",
+        "code": "World!",
+        "creation_date": "2024-12-19T13:17:32.975Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 9,
+    "fields": {
+        "name": "5555",
+        "lang": "py",
+        "code": "test",
+        "creation_date": "2024-12-19T13:34:43.589Z"
+    }
+}
+]
