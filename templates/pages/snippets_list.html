@@ -24,6 +24,7 @@
                         <th scope="col">Название</th>
                         <th scope="col">Дата создания</th>
                         <th scope="col">Пользователь</th>
+                        <th scope="col">Тип сниппета</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
@@ -39,16 +40,27 @@
                                 {{ snippet.user.username }}
                             </td>
                             <td>
+                                {% if snippet.public %}
+                                    Публичный
+                                {% else %}
+                                    Приватный
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if request.user == snippet.user %}
                                 <form action="{% url "snippet-edit" snippet.id %}" method="GET">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-primary">Редактировать</button>
                                 </form>
+                                {% endif %}
                             </td>
                             <td>
+                                {% if request.user == snippet.user %}
                                 <form action="{% url "snippet-delete" snippet.id %}" method="POST">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-danger">Удалить</button>
                                 </form>
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}

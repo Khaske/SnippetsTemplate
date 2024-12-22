@@ -26,3 +26,4 @@ python manage.py dumpdata MainApp --indent 4 > MainApp/fixtures/save_all.json
 ```
 python manage.py loaddata MainApp/fixtures/save_all.json
 ```
+17 PYTHON Day 5_1 (day 5) 1:26:55

@@ -1,0 +1,62 @@
+[
+{
+    "model": "MainApp.snippet",
+    "pk": 1,
+    "fields": {
+        "name": "Hello World Snippet",
+        "lang": "py",
+        "code": "print(\"Hello World!\")",
+        "creation_date": "2024-12-16T13:18:51.701Z",
+        "user": null,
+        "public": true
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 2,
+    "fields": {
+        "name": "Second Snippet",
+        "lang": "js",
+        "code": "                                        console.log(\"Hello world from JavaScript!\")\r\n                                    ",
+        "creation_date": "2024-12-22T08:56:28.266Z",
+        "user": null,
+        "public": true
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 5,
+    "fields": {
+        "name": "Third2",
+        "lang": "C++",
+        "code": "                                        cout\r\n                                    ",
+        "creation_date": "2024-12-22T09:40:48.755Z",
+        "user": null,
+        "public": true
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 8,
+    "fields": {
+        "name": "New_snippet",
+        "lang": "python",
+        "code": "World!",
+        "creation_date": "2024-12-19T13:17:32.975Z",
+        "user": null,
+        "public": true
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 11,
+    "fields": {
+        "name": "Users snippet",
+        "lang": "py",
+        "code": "                                                                                123123asdasd123123123!\r\n         12123123                           \r\n                                    ",
+        "creation_date": "2024-12-22T11:20:34.892Z",
+        "user": 2,
+        "public": true
+    }
+}
+]
