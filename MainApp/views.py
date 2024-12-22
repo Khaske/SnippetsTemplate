@@ -3,6 +3,27 @@ from django.shortcuts import get_object_or_404, render, redirect
 from MainApp.forms import SnippetForm
 from MainApp.models import Snippet
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import auth
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        # print("username =", username)
+        # print("password =", password)
+        user = auth.authenticate(request, username=username,
+        password=password)
+        if user is not None:
+            auth.login(request, user)
+        else:
+        # Return error message
+            pass
+    return redirect('home')
+
+def logout(request):
+    auth.logout(request)
+    return redirect("home")
 
 
 def index_page(request):
@@ -22,7 +43,10 @@ def add_snippet_page(request):
     if request.method == 'POST':
         form = SnippetForm(request.POST)
         if form.is_valid():
-            form.save()
+            snippet = form.save(commit=False)
+            if request.user.is_authenticated:
+                snippet.user = request.user
+                snippet.save()
             return redirect("snippets-list")
         return render(request, "pages/snippet_add.html", {'form':form})
 
@@ -55,6 +79,13 @@ def snippet_edit(request, snippet_id: int):
         snippet = Snippet.objects.get(pk=snippet_id)
     except ObjectDoesNotExist:
         return Http404
+    
+    # Вариант 1 на основе экземпляра
+    # if request.method == 'GET':
+    #     form = SnippetForm(instance=snippet)
+    #     return render(request, 'pages/snippet_add.html', {"form": form})
+
+    # Вариант 2 сами составляем форму
     # Получаем страницу с данными сниппета
     if request.method == 'GET':
         context = {
@@ -68,7 +99,6 @@ def snippet_edit(request, snippet_id: int):
         data_form = request.POST
         snippet.name = data_form['name']
         snippet.code = data_form['code']
-        snippet.creation_date = data_form['creation_date']
         snippet.save()
         return redirect("snippets-list")
 

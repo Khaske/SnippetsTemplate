@@ -28,7 +28,8 @@
             <div class="col">
                 <hr>
                 <h4>Найти сниппет по номеру</h4>
-                <form action='' id="view_snippet_form">
+                <form action="" id="view_snippet_form" method="POST">
+                    {% csrf_token %}
                     <div class="form-group row">
                         <label for="snippet_id" class="col-sm-2 col-form-label col-form-label-lg">Номер:</label>
                         <div class="col-sm-8">

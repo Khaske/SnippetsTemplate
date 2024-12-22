@@ -23,6 +23,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Название</th>
                         <th scope="col">Дата создания</th>
+                        <th scope="col">Пользователь</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
@@ -34,6 +35,9 @@
                             <td><a href="{% url "snippet-detail" snippet.id %}">{{ snippet.name }}</a></td>
                             <td>{{ snippet.creation_date | date:"d.m.Y, H:i:s" }}</td>
                             {% comment %} <td><a href="{% url "snippet-delete" snippet.id %}">Удалить</a></td> {% endcomment %}
+                            <td>
+                                {{ snippet.user.username }}
+                            </td>
                             <td>
                                 <form action="{% url "snippet-edit" snippet.id %}" method="GET">
                                     {% csrf_token %}
