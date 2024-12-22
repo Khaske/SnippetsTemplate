@@ -14,7 +14,7 @@ class SnippetForm(ModelForm):
         }
 
     def clean_name(self):
-        snippet_name = self.cleaned_data.get("name")
+        snippet_name = self.cleaned_data.get('name')
         if len(snippet_name) > 3:
             return snippet_name
         raise ValidationError("Название сниппета слишком короткое!")

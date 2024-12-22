@@ -4,6 +4,7 @@ from MainApp.forms import SnippetForm
 from MainApp.models import Snippet
 from django.core.exceptions import ObjectDoesNotExist
 
+
 def index_page(request):
     context = {'pagename': 'PythonBin'}
     return render(request, 'pages/index.html', context)
@@ -15,7 +16,7 @@ def add_snippet_page(request):
         context = {
             'pagename': 'Добавление нового сниппета',
             'form': SnippetForm()
-            }
+        }
         return render(request, 'pages/snippet_add.html', context)
     # получаем данные из формы и на их основе создём новый сниппет в БД
     if request.method == 'POST':
@@ -26,14 +27,14 @@ def add_snippet_page(request):
         return render(request, "pages/snippet_add.html", {'form':form})
 
 
-
 def snippets_page(request):
     context = {
         'pagename': 'Просмотр сниппетов',
         'snippets': Snippet.objects.all(),
         'count': Snippet.objects.count(),
-        }
+    }
     return render(request, 'pages/snippets_list.html', context)
+
 
 def snippet_detail(request, snippet_id: int):
     try:
@@ -44,12 +45,34 @@ def snippet_detail(request, snippet_id: int):
         context = {
             'pagename': 'Просмотр сниппета',
             'snippet': snippet,
+            'type': 'view',
         }
         return render(request, 'pages/snippet_detail.html', context)
-    
+
+
 def snippet_edit(request, snippet_id: int):
-    pass
-    
+    try:
+        snippet = Snippet.objects.get(pk=snippet_id)
+    except ObjectDoesNotExist:
+        return Http404
+    # Получаем страницу с данными сниппета
+    if request.method == 'GET':
+        context = {
+            'pagename': 'Редактирование сниппета',
+            'snippet': snippet,
+            'type': 'edit',
+        }
+        return render(request, 'pages/snippet_detail.html', context)
+    # Получаем данные из формы и на их основе создаем новый сниппет в БД
+    if request.method == 'POST':
+        data_form = request.POST
+        snippet.name = data_form['name']
+        snippet.code = data_form['code']
+        snippet.creation_date = data_form['creation_date']
+        snippet.save()
+        return redirect("snippets-list")
+
+
 def snippet_delete(request, snippet_id: int):
     if request.method == "POST":
         snippet = get_object_or_404(Snippet, id=snippet_id)

@@ -24,10 +24,10 @@
                         <th scope="col">Название</th>
                         <th scope="col">Дата создания</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
-
                     {% for snippet in snippets %}
                         <tr>
                             <td scope="row">{{ snippet.id }}</td>
@@ -35,14 +35,19 @@
                             <td>{{ snippet.creation_date | date:"d.m.Y, H:i:s" }}</td>
                             {% comment %} <td><a href="{% url "snippet-delete" snippet.id %}">Удалить</a></td> {% endcomment %}
                             <td>
-                                <form action="{% url "snippet-delete" snippet.id %}" method="post">
+                                <form action="{% url "snippet-edit" snippet.id %}" method="GET">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-primary">Редактировать</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url "snippet-delete" snippet.id %}" method="POST">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-danger">Удалить</button>
                                 </form>
                             </td>
                         </tr>
                     {% endfor %}
-
                     </tbody>
                 </table>
                 <div align="right">
