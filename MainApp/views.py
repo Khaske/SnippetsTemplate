@@ -1,6 +1,6 @@
 from django.http import Http404, HttpResponseNotFound
 from django.shortcuts import get_object_or_404, render, redirect
-from MainApp.forms import SnippetForm
+from MainApp.forms import SnippetForm, UserRegistrationForm
 from MainApp.models import Snippet
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import auth
@@ -30,6 +30,7 @@ def logout(request):
 def index_page(request):
     context = {'pagename': 'PythonBin'}
     return render(request, 'pages/index.html', context)
+
 
 @login_required
 def my_snippets_page(request):
@@ -84,6 +85,7 @@ def snippet_detail(request, snippet_id: int):
         }
         return render(request, 'pages/snippet_detail.html', context)
 
+
 @login_required
 def snippet_edit(request, snippet_id: int):
     try:
@@ -114,9 +116,27 @@ def snippet_edit(request, snippet_id: int):
         snippet.save()
         return redirect("snippets-list")
 
+
 @login_required
 def snippet_delete(request, snippet_id: int):
     if request.method == "POST":
         snippet = get_object_or_404(Snippet.objects.filter(user=request.user), id=snippet_id)
         snippet.delete()
     return redirect("snippets-list")
+
+
+def create_user(request):
+    context = {'pagename': 'Регистрация нового пользователя'}
+    # создаём пустую форму при запросе методом GET
+    if request.method == 'GET':
+        form = UserRegistrationForm()
+        context['form'] = form
+        return render(request, 'pages/registration.html', context)
+    # получаем данные из формы и на их основе создём новый сниппет в БД
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+        context['form'] = form
+        return render(request, "pages/registration.html", context)
