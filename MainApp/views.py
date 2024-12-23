@@ -87,7 +87,7 @@ def snippet_detail(request, snippet_id: int):
 @login_required
 def snippet_edit(request, snippet_id: int):
     try:
-        snippet = Snippet.objects.get(pk=snippet_id)
+        snippet = Snippet.objects.filter(user=request.user).get(pk=snippet_id)
     except ObjectDoesNotExist:
         return Http404
     
@@ -110,13 +110,13 @@ def snippet_edit(request, snippet_id: int):
         data_form = request.POST
         snippet.name = data_form['name']
         snippet.code = data_form['code']
-        snippet.public = data_form.get('public', False)
+        snippet.public = data_form.get('public', False) # get если ключ словаря не найден, присвоить False
         snippet.save()
         return redirect("snippets-list")
 
 @login_required
 def snippet_delete(request, snippet_id: int):
     if request.method == "POST":
-        snippet = get_object_or_404(Snippet, id=snippet_id)
+        snippet = get_object_or_404(Snippet.objects.filter(user=request.user), id=snippet_id)
         snippet.delete()
     return redirect("snippets-list")
