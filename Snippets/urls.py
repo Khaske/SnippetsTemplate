@@ -7,6 +7,7 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_page, name="home"),
+    path('snippets/find', views.snippet_find, name="snippet-find"),
     path('snippets/add', views.add_snippet_page, name="snippet-add"),
     path('snippets/list', views.snippets_page, name="snippets-list"),
     path('snippets/my', views.my_snippets_page, name="my-snippets-list"),

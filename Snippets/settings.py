@@ -31,8 +31,8 @@ DEBUG = False
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True # ДОБАВЛЯЕМ САМИ
+SESSION_COOKIE_SECURE = True # ДОБАВЛЯЕМ САМИ
 
 # Application definition
 

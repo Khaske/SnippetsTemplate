@@ -1,4 +1,4 @@
-from django.http import Http404, HttpResponseNotAllowed, HttpResponseNotFound
+from django.http import Http404, HttpResponse, HttpResponseNotAllowed, HttpResponseNotFound
 from django.shortcuts import get_object_or_404, render, redirect
 from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
 from MainApp.models import Snippet
@@ -158,3 +158,19 @@ def comments_add(request):
             comment.save()
             return redirect('snippet-detail', snippet_id=snippet.id)
     return HttpResponseNotAllowed(['POST'])
+
+
+def snippet_find(request):
+    if request.method == 'POST':
+        snippet_id = request.POST['number']
+    try:
+        snippet = Snippet.objects.get(pk=snippet_id)
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound(f'Snippet c id = {snippet_id} не найден!')
+    else:
+        context = {
+            'pagename': 'Просмотр сниппета',
+            'snippet': snippet,
+            'type': 'view',
+        }
+        return render(request, 'pages/snippet_detail.html', context)
