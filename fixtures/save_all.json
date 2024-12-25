@@ -6,7 +6,9 @@
         "name": "Hello World Snippet",
         "lang": "py",
         "code": "print(\"Hello World!\")",
-        "creation_date": "2024-12-16T13:18:51.701Z"
+        "creation_date": "2024-12-16T13:18:51.701Z",
+        "user": null,
+        "public": true
     }
 },
 {
@@ -15,58 +17,22 @@
     "fields": {
         "name": "Second Snippet",
         "lang": "js",
-        "code": "console.log(\"Hello world from JavaScript!\")",
-        "creation_date": "2024-12-19T08:00:25.164Z"
-    }
-},
-{
-    "model": "MainApp.snippet",
-    "pk": 3,
-    "fields": {
-        "name": "1",
-        "lang": "123",
-        "code": "123",
-        "creation_date": "2024-12-19T12:42:45.880Z"
-    }
-},
-{
-    "model": "MainApp.snippet",
-    "pk": 4,
-    "fields": {
-        "name": "Third",
-        "lang": "C++",
-        "code": "cout",
-        "creation_date": "2024-12-19T12:44:04.110Z"
+        "code": "                                        console.log(\"Hello world from JavaScript!\")\r\n                                    ",
+        "creation_date": "2024-12-22T08:56:28.266Z",
+        "user": null,
+        "public": true
     }
 },
 {
     "model": "MainApp.snippet",
     "pk": 5,
     "fields": {
-        "name": "Third",
+        "name": "Third2",
         "lang": "C++",
-        "code": "cout",
-        "creation_date": "2024-12-19T12:44:56.943Z"
-    }
-},
-{
-    "model": "MainApp.snippet",
-    "pk": 6,
-    "fields": {
-        "name": "2",
-        "lang": "py",
-        "code": "print()",
-        "creation_date": "2024-12-19T12:49:32.576Z"
-    }
-},
-{
-    "model": "MainApp.snippet",
-    "pk": 7,
-    "fields": {
-        "name": "2123",
-        "lang": "py",
-        "code": "print()",
-        "creation_date": "2024-12-19T12:52:27.843Z"
+        "code": "                                        cout\r\n                                    ",
+        "creation_date": "2024-12-22T09:40:48.755Z",
+        "user": null,
+        "public": true
     }
 },
 {
@@ -76,17 +42,123 @@
         "name": "New_snippet",
         "lang": "python",
         "code": "World!",
-        "creation_date": "2024-12-19T13:17:32.975Z"
+        "creation_date": "2024-12-19T13:17:32.975Z",
+        "user": null,
+        "public": true
     }
 },
 {
     "model": "MainApp.snippet",
+    "pk": 11,
+    "fields": {
+        "name": "Users snippet",
+        "lang": "py",
+        "code": "                                                                                123123asdasd123123123!\r\n         12123123                           \r\n                                    ",
+        "creation_date": "2024-12-22T11:20:34.892Z",
+        "user": null,
+        "public": true
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 13,
+    "fields": {
+        "name": "Third",
+        "lang": "html",
+        "code": "                                        5+60+5+652\r\n                                    ",
+        "creation_date": "2024-12-23T13:07:40.594Z",
+        "user": 1,
+        "public": true
+    }
+},
+{
+    "model": "MainApp.comment",
+    "pk": 1,
+    "fields": {
+        "text": "1231231233123",
+        "creation_date": "2024-12-24T09:26:16.892Z",
+        "author": 2,
+        "snippet": 8
+    }
+},
+{
+    "model": "MainApp.comment",
+    "pk": 2,
+    "fields": {
+        "text": "123123123",
+        "creation_date": "2024-12-24T09:26:31.064Z",
+        "author": 2,
+        "snippet": 13
+    }
+},
+{
+    "model": "MainApp.comment",
+    "pk": 3,
+    "fields": {
+        "text": "fsdfsdf",
+        "creation_date": "2024-12-24T09:27:17.047Z",
+        "author": 2,
+        "snippet": 1
+    }
+},
+{
+    "model": "MainApp.comment",
+    "pk": 4,
+    "fields": {
+        "text": "gfdg",
+        "creation_date": "2024-12-24T09:37:18.121Z",
+        "author": 2,
+        "snippet": 1
+    }
+},
+{
+    "model": "MainApp.comment",
+    "pk": 5,
+    "fields": {
+        "text": "123123",
+        "creation_date": "2024-12-24T09:37:28.202Z",
+        "author": 2,
+        "snippet": 2
+    }
+},
+{
+    "model": "MainApp.comment",
+    "pk": 6,
+    "fields": {
+        "text": "asdasd",
+        "creation_date": "2024-12-24T09:40:24.666Z",
+        "author": 2,
+        "snippet": 1
+    }
+},
+{
+    "model": "MainApp.comment",
+    "pk": 7,
+    "fields": {
+        "text": "asdasd",
+        "creation_date": "2024-12-24T09:40:26.972Z",
+        "author": 2,
+        "snippet": 1
+    }
+},
+{
+    "model": "MainApp.comment",
+    "pk": 8,
+    "fields": {
+        "text": "asdasd2222",
+        "creation_date": "2024-12-24T09:40:29.519Z",
+        "author": 2,
+        "snippet": 1
+    }
+},
+{
+    "model": "MainApp.comment",
     "pk": 9,
     "fields": {
-        "name": "5555",
-        "lang": "py",
-        "code": "test",
-        "creation_date": "2024-12-19T13:34:43.589Z"
+        "text": "sdfaaaaaffffffffffffffffffffffffffffffdddwwwwwwwwwwwwwwwww",
+        "creation_date": "2024-12-24T09:40:43.894Z",
+        "author": 2,
+        "snippet": 1
     }
 }
 ]
